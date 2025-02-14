@@ -1,23 +1,27 @@
-interface Printable {
-    void print();
+interface Mul {
+    void muli(int a, int b);
 }
 
-interface Showable {
-    void show();
+interface Div {
+    void divi(int a, int b);
 }
 
-class multipleinterface implements Printable, Showable {
-    public void print() {
-        System.out.println("Hello");
+class Calculator implements Mul, Div {
+    public void muli(int a, int b) {
+        System.out.println("Multiplication: " + (a * b));
     }
 
-    public void show() {
-        System.out.println("Welcome");
+    public void divi(int a, int b) {
+        if (b != 0) {
+            System.out.println("Division: " + (a / b));
+        } else {
+            System.out.println("Division by zero is not allowed.");
+        }
     }
 
     public static void main(String[] args) {
-        multipleinterface obj = new multipleinterface();
-        obj.print();
-        obj.show();
+        Calculator calc = new Calculator();
+        calc.muli(10, 5);
+        calc.divi(10, 5);
     }
 }
